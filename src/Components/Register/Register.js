@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import FormElement from './FormElement'
-import { RestaurantContext } from '../RestaurantMain/RestaurantContextProvider'
+import { RestaurantContext } from '../../Context/RestaurantContext/RestaurantContextProvider'
 
 function Register () {    
     const [restaurant, setrestaurant] = useState([{ resName: '' , resLocation: '', resFavFood: '' , resFavFoodPrice: '' }]);
@@ -15,16 +15,15 @@ function Register () {
 
     const handleChange = (e) => {      
         for (var name in restaurant[0]) {
-            if (name === e.target.name) {
-                setrestaurant([...restaurant, restaurant[0].name = e.target.value])
+            if (name === e.target.name) {                               
+                setrestaurant([...restaurant, restaurant[0][name] = e.target.value])                
             }            
         }        
     }
     
     return (
         <>
-            <FormElement elementmethod={handleChange} formmethod={handleSubmit} />
-            <p>Hello</p>
+            <FormElement elementmethod={handleChange} formmethod={handleSubmit} />            
         </>
     );      
 }

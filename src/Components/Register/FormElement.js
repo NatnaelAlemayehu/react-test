@@ -1,8 +1,17 @@
 import React from "react";
+
+const styles = {
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  margin: "auto",
+  width: 200
+}
+
 export default function FormElement({ elementmethod, formmethod}) {
   return (
     <>
-      <form onSubmit={(e) => formmethod(e)}>
+      <form onSubmit={(e) => formmethod(e)} style={styles}>
         <div className="form-group">
           <label>Restaurant Name</label>
           <input
@@ -36,7 +45,7 @@ export default function FormElement({ elementmethod, formmethod}) {
             className="form-control"
             id="resFavFood"
             name="resFavFood"
-            placeholder="Location"            
+            placeholder="Favorite Food"            
             onChange={(e) => {
               elementmethod(e);
             }}
@@ -45,11 +54,11 @@ export default function FormElement({ elementmethod, formmethod}) {
         <div className="form-group">
           <label>Pirce</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="resFavFoodPrice"
             name="resFavFoodPrice"
-            placeholder="Location"            
+            placeholder="Food Price"            
             onChange={(e) => {
               elementmethod(e);
             }}
